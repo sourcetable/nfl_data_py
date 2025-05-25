@@ -23,12 +23,12 @@ body:
   attributes:
     label: What type of enhancement is this?
     options:
-      - New function
-      - Improvement to existing function
-      - New data source integration
-      - Performance improvement
-      - Documentation improvement
-      - Other
+      - label: New function
+      - label: Improvement to existing function
+      - label: New data source integration
+      - label: Performance improvement
+      - label: Documentation improvement
+      - label: Other
   validations:
     required: true
 

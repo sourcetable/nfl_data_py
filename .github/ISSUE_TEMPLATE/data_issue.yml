@@ -33,7 +33,7 @@ body:
 - type: dropdown
   attributes:
     label: Select the category that best describes your issue
-    descripton: Data is...
+    description: Data is...
     options:
       - Missing (expected data not present)
       - Clearly incorrect (i.e. player on wrong team)
