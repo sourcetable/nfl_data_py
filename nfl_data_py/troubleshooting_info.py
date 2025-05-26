@@ -1,3 +1,4 @@
+import re
 import platform as pf
 import importlib.metadata as md
 
@@ -5,14 +6,15 @@ import importlib.metadata as md
 def troubleshooting_info():
     """Print system, package and deps information relevant to troubleshooting"""
     
-    print("nfl_data_py", md.version("nfl_data_py"))
-    print(pf.python_implementation(), pf.python_version())
-    print(pf.platform())
-    print("Dependencies:")
-    for pkg in md.requires("nfl_data_py"):
-        name, constraints = pkg.split(maxsplit=1)
-        version = f"v{md.version(name).strip('.0')}"
-        print(f" - {name}\t{version}\t({constraints})")
+    print("OS:", pf.platform())
+    python = pf.python_implementation(), pf.python_version()
+    print("nfl_data_py", md.version("nfl_data_py"), "on", *python)
+
+    for dep in md.requires("nfl_data_py"):  # type: ignore
+        match = re.match(r'^([a-zA-Z_-]+)(.*)$', dep)
+        name, constraints = match.groups() if match else (dep, "")
+        version = f"v{md.version(name).ljust(12)}"
+        print(f" - {name}\t{version}({constraints.strip('=')})")
 
 
 if __name__ == "__main__":
