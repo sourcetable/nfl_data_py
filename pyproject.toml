@@ -15,7 +15,7 @@ dependencies = [
     "appdirs==1.*",
     "fastparquet>0.5",
     "numpy==1.*",
-    "pandas==1.*",
+    "pandas>=2.3.1",
 ]
 classifiers = [
     # Trove classifiers. Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
